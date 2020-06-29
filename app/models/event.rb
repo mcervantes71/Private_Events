@@ -6,4 +6,12 @@ class Event < ApplicationRecord
   validates :details, length: { in: 4..50 }, presence: true
   validates :date, presence: true
   validates :location, presence: true
+
+  validate :date_cannot_be_in_the_past
+
+  def date_cannot_be_in_the_past
+    if date.present? && date < DateTime.now
+      errors.add(:date, "Event can't be in the past")
+    end
+  end
 end

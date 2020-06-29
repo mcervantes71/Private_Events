@@ -1,0 +1,17 @@
+<div class="container">
+  <h1 class="text-center pt-3 pb-2">New Event</h1>
+
+  <% if @event.errors.any? %>
+    <div id="error_explanation" class="mt-2">
+      <h2><span class="text-danger"><%= pluralize(@event.errors.count, "error") %></span> prohibited this post from being saved:</h2>
+
+      <ul>
+        <% @event.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= render partial: 'form' %>
+</div>
