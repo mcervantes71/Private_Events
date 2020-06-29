@@ -80,7 +80,7 @@ In the browser navigate to `http://localhost:3000/sign-up`
 
     Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/mcervantes71/Members_Only/issues).
+Feel free to check the [issues page](https://github.com/mcervantes71/Private_Events/issues).
 
 ## :star2: Show your support
 
