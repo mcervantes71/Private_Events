@@ -16,18 +16,22 @@
 
         <div class="d-flex flex-row align-items-center">
           <% if current_user %>
-            <a class="pr-2"><%= current_user.full_name %></a>
+            <%= link_to current_user.full_name, user_path(current_user), id: "user_#{current_user.id}", class: "pr-2" %>
 
-            <%= link_to 'Log Out', destroy_user_session_path, :method => :delete %>
+            <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %>
+          <% elsif !current_user && controller_name == 'sessions' %>
+            <%= link_to "Sign up", new_user_registration_path %><br />
           <% else %>
-            <%= link_to 'Log In', user_session_path %>
+            <%= link_to "Log in", user_session_path %>
           <% end %>
         </div>
       </nav>
 
-      <p class="notice"><%= notice %></p>
-
-      <p class="alert"><%= alert %></p>
+      <% if notice %>
+        <p class="notice"><%= notice %></p>
+      <% elsif alert %>
+        <p class="alert"><%= alert %></p>
+      <% end %>
 
       <%= yield %>
     </div>
