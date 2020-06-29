@@ -1,0 +1,49 @@
+<div class="container">
+  <h1 class="text-center pt-3 pb-2">My Events</h1>
+
+  <%= link_to 'New Event', new_event_path, class: 'btn btn-success my-2' %>
+
+  <table class = 'table table-hover'>
+    <thead class="thead-dark">
+      <tr>
+        <th>Name</th>
+        <th>Attendees</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% current_user.events.each do |event| %>
+        <tr>
+          <td><%= event.name %></td>
+          <td><%= event.attendees.count %></td>
+          <td><%= link_to "Edit", edit_event_path(event), class: 'btn btn-primary', id: "event_#{event.id}" %></td>
+          <td><%= link_to "Delete", event_path(event), method: :delete, class: 'btn btn-danger', id: "event_#{event.id}" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <h1 class="text-center pt-3 pb-2">You're Registered</h1>
+
+  <table class = 'table table-hover'>
+    <thead class="thead-dark">
+      <tr>
+        <th>Name</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% current_user.attendees.each do |attendee| %>
+        <tr>
+          <td><%= attendee.event.name %><% if attendee.event.date > DateTime.now %>
+            <span class="badge badge-success">Upcoming</span>
+          <% else %>
+            <span class="badge badge-danger">Past</span>
+          <% end %></td>
+          <td><%= link_to 'Read more', event_path(attendee.event_id), class: 'btn btn-primary' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
