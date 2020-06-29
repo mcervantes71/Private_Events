@@ -2,7 +2,7 @@
 
 In this project we demonstrated the main concepts of Associatons in rails, by building an application similiar to Eventbrite which we named Private Events.
 
-![screenshot](./app/assets/images/ScreenShot.png)
+![screenshot](./app/assets/images/Screenshot.png)
 
 ## :package: Built With
 
