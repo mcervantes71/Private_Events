@@ -1,4 +1,6 @@
 class AttendeesController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     @attendee = current_user.attendees.build(attendee_params)
     @attendee.event_id = params[:event_id]

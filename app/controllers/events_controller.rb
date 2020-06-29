@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  before_action :authenticate_user!, except: %i[index show]
+
   def index
     @events = Event.all
     @events = Event.order(date: :desc)
