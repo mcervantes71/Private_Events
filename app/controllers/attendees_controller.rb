@@ -2,8 +2,7 @@ class AttendeesController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @attendee = current_user.attendees.build(attendee_params)
-    @attendee.event_id = params[:event_id]
+    @attendee = current_user.attendees.build(:event_id => params[:event_id])
 
     @attendee.save
 
@@ -18,6 +17,6 @@ class AttendeesController < ApplicationController
   end
 
   def attendee_params
-    params.require(:attendee).permit(:event_id, :status)
+    params.require(:attendee).permit(:event_id)
   end
 end
