@@ -16,6 +16,8 @@
 
         <div class="d-flex flex-row align-items-center">
           <% if current_user %>
+            <%= link_to 'New Event', new_event_path, class: 'btn btn-success mr-2' %>
+
             <%= link_to current_user.full_name, user_path(current_user), id: "user_#{current_user.id}", class: "pr-2" %>
 
             <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %>
