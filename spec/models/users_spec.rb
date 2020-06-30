@@ -22,25 +22,25 @@ RSpec.describe User, type: :model do
 
   it 'is not valid if same username exist' do
     User.create(
-      full_name: "Joe smith",
-      username: "joeyyoey",
-      email: "test@example.com",
-      password: "dottle123",
-           )
+      full_name: 'Joe smith',
+      username: 'joeyyoey',
+      email: 'test@example.com',
+      password: 'dottle123'
+    )
     user = User.new(
-      full_name: "Jane smith",
-      username: "joeyyoey",
-      email: "jake@example.com",
-      password: "dottle123",
-        )
+      full_name: 'Jane smith',
+      username: 'joeyyoey',
+      email: 'jake@example.com',
+      password: 'dottle123'
+    )
     user.valid?
-    expect(user.errors[:username]).to include("has already been taken")
+    expect(user.errors[:username]).to include('has already been taken')
   end
-  
+
   it 'is not valid if password is not correct' do
     user = User.new(password: 'ak')
     user.valid?
-    expect(user.valid?).to eq(false )
+    expect(user.valid?).to eq(false)
   end
 
   it 'is not valid if email is not correct' do
