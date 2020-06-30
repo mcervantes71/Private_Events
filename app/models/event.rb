@@ -10,8 +10,6 @@ class Event < ApplicationRecord
   validate :date_cannot_be_in_the_past
 
   def date_cannot_be_in_the_past
-    if date.present? && date < DateTime.now
-      errors.add(:date, "Event can't be in the past")
-    end
+    errors.add(:date, "Event can't be in the past") if date.present? && date < DateTime.now
   end
 end

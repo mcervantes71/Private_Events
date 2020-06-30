@@ -10,7 +10,7 @@ class AttendeesController < ApplicationController
   end
 
   def destroy
-    @attendee = current_user.attendees.find_by(:event_id => params[:event_id])
+    @attendee = current_user.attendees.find_by(event_id: params[:event_id])
     Attendee.destroy(@attendee.id)
 
     redirect_to event_path(params[:event_id])
