@@ -13,11 +13,11 @@
     <tbody>
       <% current_user.events.each do |event| %>
         <tr>
-          <td><%= event.name %><% if event.date > DateTime.now %>
-            <span class="badge badge-success">Upcoming</span>
-          <% else %>
-            <span class="badge badge-danger">Past</span>
-          <% end %></td>
+          <td>
+            <%= event.name %>
+
+            <%= render 'shared/display_badge', date: event.date %>
+          </td>
           <td><%= event.attendees.count %></td>
           <td><%= link_to "Edit", edit_event_path(event), class: 'btn btn-primary', id: "event_#{event.id}" %></td>
           <td><%= link_to "Delete", event_path(event), method: :delete, class: 'btn btn-danger', id: "event_#{event.id}" %></td>
@@ -38,11 +38,10 @@
     <tbody>
       <% current_user.attendees.each do |attendee| %>
         <tr>
-          <td><%= attendee.event.name %><% if attendee.event.date > DateTime.now %>
-            <span class="badge badge-success">Upcoming</span>
-          <% else %>
-            <span class="badge badge-danger">Past</span>
-          <% end %></td>
+          <td>
+            <%= attendee.event.name %>
+            <%= render 'shared/display_badge', date: attendee.event.date %>
+          </td>
           <td><%= link_to 'Read more', event_path(attendee.event_id), class: 'btn btn-primary' %></td>
         </tr>
       <% end %>

@@ -9,13 +9,8 @@
       <p class="lead"><span class="text-white bg-secondary p-1">Date:</span> <%= @event.date %></p>
       <p class="lead"><span class="text-white bg-secondary p-1">Host:</span> <%= @event.user.full_name %></p>
 
-      <% if current_user && current_user.id != @event.user_id && @event.date > DateTime.now %>
-        <% if current_user.attendees.find_by(event_id: @event.id) %>
-          <%= link_to "Delete", event_attendee_path(@event), method: :delete, id: "event_#{@event.id}", class: 'btn btn-danger' %>
-        <% else %>
-          <%= link_to "Join", event_attendees_path(@event, @attendee), method: :post, id: "event_#{@event.id}", class: "btn btn-primary" %>
-        <% end %>
-      <% end %>
+      <%= render 'shared/attendee_links', current_user: current_user, event: @event, attendee: @attendee %>
+      
     </div>
     <div class="">
       <h2 class="text-center">Attendees</h2>

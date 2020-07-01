@@ -14,5 +14,5 @@ class Event < ApplicationRecord
   # end
 
   scope :upcoming, -> { where('date > ?', Time.zone.now) }
-  scope :previous, -> { where('date <= ?',  Time.zone.now) }
+  scope :previous, -> { where('date <= ?', Time.zone.now) }
 end
