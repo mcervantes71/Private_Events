@@ -17,5 +17,13 @@
         <% end %>
       <% end %>
     </div>
+    <div class="">
+      <h2 class="text-center">Attendees</h2>
+      <ul>
+        <% @event.attendees.each do |attendee| %>
+          <li><%= attendee.user.full_name %></li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </div>
