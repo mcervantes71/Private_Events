@@ -7,10 +7,10 @@
       <p class="lead"><span class="text-white bg-secondary p-1">Details:</span> <%= @event.details %></p>
       <p class="lead"><span class="text-white bg-secondary p-1">Location:</span> <%= @event.location %></p>
       <p class="lead"><span class="text-white bg-secondary p-1">Date:</span> <%= @event.date %></p>
-      <p class="lead"><span class="text-white bg-secondary p-1">Host:</span> <%= @event.user.full_name %></p>
+      <p class="lead"><span class="text-white bg-secondary p-1">Host:</span> <%= @event.creator.full_name %></p>
 
       <%= render 'shared/attendee_links', current_user: current_user, event: @event, attendee: @attendee %>
-      
+
     </div>
     <div class="">
       <h2 class="text-center">Attendees</h2>

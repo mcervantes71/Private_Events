@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-  belongs_to :user
+  belongs_to :creator, class_name: "User"
   has_many :attendees, dependent: :destroy
 
   validates :name, length: { in: 4..30 }, presence: true, uniqueness: true
