@@ -2,20 +2,8 @@
   <h1 class="text-center pt-3 pb-2">All Events</h1>
 
   <div class="d-flex flex-row flex-wrap justify-content-between">
-    <% @events.each do |event| %>
-      <div class="card mb-2" style="width: 15rem;">
-        <div class="card-body">
-          <h5 class="card-title font-weight-bolder">
-            <%= event.name %>
+    <%= render 'shared/upcoming_cards', events: @events %>
 
-            <%= render 'shared/display_badge', date: event.date %>
-          </h5>
-
-          <p class="card-text"><%= event.details %></p>
-
-          <%= link_to 'Read more', event_path(event), class: 'btn btn-primary' %>
-        </div>
-      </div>
-    <% end %>
+    <%= render 'shared/previous_cards', events: @events %>
   </div>
 </div>
