@@ -1,0 +1,35 @@
+<div class="container">
+  <h1 class="text-center pt-3 pb-2">My Events</h1>
+
+  <table class = 'table table-hover'>
+    <thead class="thead-dark">
+      <tr>
+        <th>Name</th>
+        <th>Attendees</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render 'shared/upcoming_rows' %>
+
+      <%= render 'shared/previous_rows' %>
+    </tbody>
+  </table>
+
+  <h1 class="text-center pt-3 pb-2">You're Registered</h1>
+
+  <table class = 'table table-hover'>
+    <thead class="thead-dark">
+      <tr>
+        <th>Name</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <%= render 'shared/current_user_attendees' %>
+
+    </tbody>
+  </table>
+</div>
