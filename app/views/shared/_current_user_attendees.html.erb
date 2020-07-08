@@ -1,0 +1,9 @@
+<% current_user.attendees.each do |attendee| %>
+  <tr>
+    <td>
+      <%= attendee.event.name %>
+      <%= render 'shared/display_badge', date: attendee.event.date %>
+    </td>
+    <td><%= link_to 'Read more', event_path(attendee.event_id), class: 'btn btn-primary' %></td>
+  </tr>
+<% end %>

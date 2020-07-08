@@ -1,0 +1,9 @@
+<% users.each do |user| %>
+  <tr>
+    <td><%= user.id %></td>
+    <td><%= user.username %></td>
+    <td><%= user.email %></td>
+    <td><%= user.events.count %></td>
+    <td><%= user.attendees.count %></td>
+  </tr>
+<% end %>
